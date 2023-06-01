@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.abissell.javautil;
+package io.github.abissell.javautil;
 
 import java.util.Objects;
 

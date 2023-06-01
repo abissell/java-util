@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.abissell.javautil;
+package io.github.abissell.javautil;
 
 public /* value */ record None<T>() implements Opt<T> {
     private static final None<?> NONE = new None<>();
