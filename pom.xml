@@ -79,6 +79,8 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.5.0</version>
         <configuration>
+          <source>19</source>
+          <target>19</target>
           <additionalOptions>--enable-preview</additionalOptions>
         </configuration>
         <executions>
