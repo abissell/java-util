@@ -3,6 +3,8 @@
 
 name: Java CI with Maven
 
+environment: github-actions
+
 on:
   push:
     branches: [ main ]
