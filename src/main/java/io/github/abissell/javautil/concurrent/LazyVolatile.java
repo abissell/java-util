@@ -40,5 +40,5 @@ public final class LazyVolatile<V, T> {
         localVal = new LocalVal<>(val, ts);
     }
 
-    private static record LocalVal<V, T>(V val, T ts) { }
+    private record LocalVal<V, T>(V val, T ts) { }
 }
