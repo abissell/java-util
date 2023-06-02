@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2023 Andrew Bissell. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil;
+package io.github.abissell.javautil.rusty;
 
 import java.util.Objects;
 
-public /* value */ record Some<T>(T t) implements Opt<T> {
-    public Some {
-        Objects.requireNonNull(t, "Value must not be null");
+public /* value */ record Err<T, E extends ErrType<E>>(E e) implements Result<T, E> {
+    public Err {
+        Objects.requireNonNull(e, "Value must not be null");
     }
 }

@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2023 Andrew Bissell. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil;
+package io.github.abissell.javautil.rusty;
 
-public /* value */ record None<T>() implements Opt<T> {
-    private static final None<?> NONE = new None<>();
-
-    @SuppressWarnings("unchecked")
-    static <T> None<T> none() {
-        return (None<T>) NONE;
-    }
+public interface ErrType<E extends ErrType<E>> {
+    public <T> Err<T, E> err();
 }
