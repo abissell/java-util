@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.concurrent;
+package com.abissell.javautil.concurrent;
 
 import java.util.function.BiPredicate;
 

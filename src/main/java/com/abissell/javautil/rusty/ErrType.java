@@ -13,12 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.rusty;
+package com.abissell.javautil.rusty;
 
-import java.util.Objects;
-
-public /* value */ record Err<T, E extends ErrType<E>>(E e) implements Result<T, E> {
-    public Err {
-        Objects.requireNonNull(e, "Value must not be null");
-    }
+public interface ErrType<E extends ErrType<E>> {
+    public <T> Err<T, E> err();
 }

@@ -13,23 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.io;
+package com.abissell.javautil.rusty;
 
-import io.github.abissell.javautil.rusty.Opt;
+import java.util.Objects;
 
-public enum IO {
-    ; // Enum singleton
-
-    public static Opt<YesNo> readYesOrNoFromConsole() {
-        var answer = System.console().readLine();
-        return readYesOrNo(answer);
-    }
-
-    public static Opt<YesNo> readYesOrNo(String value) {
-        return switch (value.toLowerCase()) {
-            case "y", "yes" -> Opt.of(YesNo.YES);
-            case "n", "no" -> Opt.of(YesNo.NO);
-            default -> Opt.none();
-        };
+public /* value */ record Some<T>(T t) implements Opt<T> {
+    public Some {
+        Objects.requireNonNull(t, "Value must not be null");
     }
 }

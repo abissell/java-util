@@ -13,9 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.io;
+package com.abissell.javautil.rusty;
 
-public enum YesNo {
-    YES,
-    NO
+public /* value */ record None<T>() implements Opt<T> {
+    private static final None<?> NONE = new None<>();
+
+    @SuppressWarnings("unchecked")
+    static <T> None<T> none() {
+        return (None<T>) NONE;
+    }
 }

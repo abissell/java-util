@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.rusty;
+package com.abissell.javautil.rusty;
 
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;

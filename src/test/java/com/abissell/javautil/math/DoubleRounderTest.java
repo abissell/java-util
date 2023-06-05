@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.math;
+package com.abissell.javautil.math;
 
 import org.junit.jupiter.api.Test;
 

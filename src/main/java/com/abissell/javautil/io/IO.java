@@ -13,13 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.abissell.javautil.rusty;
+package com.abissell.javautil.io;
 
-public /* value */ record None<T>() implements Opt<T> {
-    private static final None<?> NONE = new None<>();
+import com.abissell.javautil.rusty.Opt;
 
-    @SuppressWarnings("unchecked")
-    static <T> None<T> none() {
-        return (None<T>) NONE;
+public enum IO {
+    ; // Enum singleton
+
+    public static Opt<YesNo> readYesOrNoFromConsole() {
+        var answer = System.console().readLine();
+        return readYesOrNo(answer);
+    }
+
+    public static Opt<YesNo> readYesOrNo(String value) {
+        return switch (value.toLowerCase()) {
+            case "y", "yes" -> Opt.of(YesNo.YES);
+            case "n", "no" -> Opt.of(YesNo.NO);
+            default -> Opt.none();
+        };
     }
 }
