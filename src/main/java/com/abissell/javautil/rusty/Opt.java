@@ -65,15 +65,15 @@ public sealed interface Opt<T> permits Some, None {
         };
     }
 
-    public static <T> Opt<T> none() {
+    static <T> Opt<T> none() {
         return None.none();
     }
 
-    public static <T> Opt<T> of(T t) {
+    static <T> Opt<T> of(T t) {
         return new Some<>(t);
     }
 
-    public static <T> Opt<T> ofNullable(T t) {
+    static <T> Opt<T> ofNullable(T t) {
         return t == null ? None.none() : new Some<>(t);
     }
 }

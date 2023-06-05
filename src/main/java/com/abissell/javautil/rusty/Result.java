@@ -43,15 +43,15 @@ public sealed interface Result<T, E extends ErrType<E>> permits Ok, Err {
     default <O> Opt<O> map(Function<T, O> mapper) {
         return switch (this) {
             case Ok<T, E>(T t) -> Opt.of(mapper.apply(t));
-            case Err<T, E>(E e) -> Opt.none();
+            case Err<T, E>(E __) -> Opt.none();
         };
     }
 
     static <T, E extends ErrType<E>> Result<T, E> of(T t) {
-        return (Result<T, E>) new Ok<>(t);
+        return new Ok<>(t);
     }
 
     static <T, E extends ErrType<E>> Result<T, E> err(E e) {
-        return (Result<T, E>) e.err();
+        return e.err();
     }
 }

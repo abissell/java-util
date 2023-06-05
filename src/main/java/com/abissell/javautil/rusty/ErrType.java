@@ -16,5 +16,5 @@
 package com.abissell.javautil.rusty;
 
 public interface ErrType<E extends ErrType<E>> {
-    public <T> Err<T, E> err();
+    <T> Err<T, E> err();
 }
