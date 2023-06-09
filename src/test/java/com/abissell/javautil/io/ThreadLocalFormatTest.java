@@ -30,7 +30,7 @@ public class ThreadLocalFormatTest {
     @Test
     public void test8SigDigits() {
         var toTest = 12345678.123456789d;
-        var formatted = ThreadLocalFormat.with4SigDigits().format(toTest);
+        var formatted = ThreadLocalFormat.with8SigDigits().format(toTest);
         assertEquals("12,345,678.12345679", formatted);
     }
 }
