@@ -15,21 +15,22 @@
  */
 package com.abissell.javautil.io;
 
-import java.text.DecimalFormat;
+import org.junit.jupiter.api.Test;
 
-public enum ThreadLocalFormat {
-    ; // Enum singleton
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    private static final ThreadLocal<DecimalFormat> with8SigDigits =
-            ThreadLocal.withInitial(() -> new DecimalFormat("###,###,###,###,###,###,###,###,###,##0.00######"));
-    private static final ThreadLocal<DecimalFormat> with4SigDigits =
-            ThreadLocal.withInitial(() -> new DecimalFormat("###,###,###,###,###,###,###,###,###,##0.00##"));
-
-    public static DecimalFormat with8SigDigits() {
-        return with8SigDigits.get();
+public class ThreadLocalFormatTest {
+    @Test
+    public void test4SigDigits() {
+        var toTest = 12345678.12345678d;
+        var formatted = ThreadLocalFormat.with4SigDigits().format(toTest);
+        assertEquals("12,345,678.1235", formatted);
     }
 
-    public static DecimalFormat with4SigDigits() {
-        return with4SigDigits.get();
+    @Test
+    public void test8SigDigits() {
+        var toTest = 12345678.123456789d;
+        var formatted = ThreadLocalFormat.with4SigDigits().format(toTest);
+        assertEquals("12,345,678.12345679", formatted);
     }
 }
