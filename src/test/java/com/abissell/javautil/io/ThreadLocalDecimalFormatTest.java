@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Andrew Bissell. All Rights Reserved.
+ * Copyright 2024 Andrew Bissell. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,22 +15,22 @@
  */
 package com.abissell.javautil.io;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ThreadLocalFormatTest {
+import org.junit.jupiter.api.Test;
+
+public class ThreadLocalDecimalFormatTest {
     @Test
     public void test4SigDigits() {
         var toTest = 12345678.12345678d;
-        var formatted = ThreadLocalFormat.with4SigDigits().format(toTest);
+        var formatted = ThreadLocalDecimalFormat.with4SigDigits().format(toTest);
         assertEquals("12,345,678.1235", formatted);
     }
 
     @Test
     public void test8SigDigits() {
         var toTest = 12345678.123456789d;
-        var formatted = ThreadLocalFormat.with8SigDigits().format(toTest);
+        var formatted = ThreadLocalDecimalFormat.with8SigDigits().format(toTest);
         assertEquals("12,345,678.12345679", formatted);
     }
 }

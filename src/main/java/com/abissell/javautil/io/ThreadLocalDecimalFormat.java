@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Andrew Bissell. All Rights Reserved.
+ * Copyright 2024 Andrew Bissell. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package com.abissell.javautil.io;
 
 import java.text.DecimalFormat;
 
-public enum ThreadLocalFormat {
+public enum ThreadLocalDecimalFormat {
     ; // Enum singleton
 
     private static final ThreadLocal<DecimalFormat> with8SigDigits =

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Andrew Bissell. All Rights Reserved.
+ * Copyright 2024 Andrew Bissell. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,4 +21,11 @@ public /* value */ record Ok<T, E extends ErrType<E>>(T t) implements Result<T, 
     public Ok {
         Objects.requireNonNull(t, "Value must not be null");
     }
+
+    private static final Result<Boolean, ?> OK_TRUE = new Ok<>(Boolean.TRUE);
+    @SuppressWarnings("unchecked")
+    public static <E extends ErrType<E>> Result<Boolean, E> okTrue() {
+        return (Result<Boolean, E>) OK_TRUE;
+    }
+
 }
