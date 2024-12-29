@@ -21,6 +21,34 @@ import org.junit.jupiter.api.Test;
 
 public class ThreadLocalDecimalFormatTest {
     @Test
+    public void test0SigDigits() {
+        var toTest = 12345678.12345678d;
+        var formatted = ThreadLocalDecimalFormat.withSigDigits(0).format(toTest);
+        assertEquals("12,345,678", formatted);
+    }
+
+    @Test
+    public void test1SigDigits() {
+        var toTest = 12345678.12345678d;
+        var formatted = ThreadLocalDecimalFormat.withSigDigits(1).format(toTest);
+        assertEquals("12,345,678.1", formatted);
+    }
+
+    @Test
+    public void test2SigDigits() {
+        var toTest = 12345678.12345678d;
+        var formatted = ThreadLocalDecimalFormat.with2SigDigits().format(toTest);
+        assertEquals("12,345,678.12", formatted);
+    }
+
+    @Test
+    public void test3SigDigits() {
+        var toTest = 12345678.12345678d;
+        var formatted = ThreadLocalDecimalFormat.withSigDigits(3).format(toTest);
+        assertEquals("12,345,678.123", formatted);
+    }
+
+    @Test
     public void test4SigDigits() {
         var toTest = 12345678.12345678d;
         var formatted = ThreadLocalDecimalFormat.with4SigDigits().format(toTest);
