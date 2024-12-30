@@ -15,29 +15,20 @@
  */
 package com.abissell.javautil.math;
 
-import java.math.RoundingMode;
-import java.util.Set;
+import net.openhft.chronicle.core.Maths;
 
-public final class DoubleRounder {
+public enum DoubleRounder {
+    ; // Enum singleton
 
-    private final org.decimal4j.util.DoubleRounder[] rounders;
-
-    public DoubleRounder(Set<Integer> places) {
-        int highestPlace = places.stream().max(Integer::compareTo).orElseThrow();
-        if (highestPlace > 20) {
-            throw new IllegalArgumentException("" + highestPlace);
-        }
-        rounders = new org.decimal4j.util.DoubleRounder[highestPlace + 1];
-        for (int place : places) {
-            rounders[place] = new org.decimal4j.util.DoubleRounder(place);
-        }
+    public static double round(double val, int places) {
+        return Maths.roundN(val, places);
     }
 
-    public double round(double val, int places) {
-        return rounders[places].round(val);
+    public static double roundUp(double val, int places) {
+        return Maths.ceilN(val, places);
     }
 
-    public double round(double val, int places, RoundingMode roundingMode) {
-        return rounders[places].round(val, roundingMode);
+    public static double roundDn(double val, int places) {
+        return Maths.floorN(val, places);
     }
 }
