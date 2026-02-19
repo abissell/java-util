@@ -8,6 +8,12 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.36.0"
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
 repositories {
     mavenCentral()
     gradlePluginPortal()
