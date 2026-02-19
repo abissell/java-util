@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    api(libs.net.openhft.chronicle.core)
+    implementation("net.openhft:chronicle-core:2026.3")
     testImplementation(platform("org.junit:junit-bom:6.0.3"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
@@ -33,7 +33,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.java-util", "java-util", "0.7.0")
+    coordinates("com.abissell.java-util", "java-util", "0.8.0-SNAPSHOT")
 
     pom {
         name.set("java-util")
