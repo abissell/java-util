@@ -15,7 +15,9 @@ repositories {
 
 extraJavaModuleInfo {
     failOnAutomaticModules = true
-    module("chronicle-core-2026.3.jar", "chronicle.core")
+    module("chronicle-core-2026.3.jar", "chronicle.core") {
+        exports("net.openhft.chronicle.core")
+    }
     module("posix-2026.2.jar", "net.openhft.posix")
     module("chronicle-analytics-2026.2.jar", "chronicle.analytics")
     module("jna-platform-5.5.0.jar", "com.sun.jna.platform")
@@ -50,7 +52,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.java-util", "java-util", "0.8.0-SNAPSHOT")
+    coordinates("com.abissell.java-util", "java-util", "0.8.0")
 
     pom {
         name.set("java-util")
