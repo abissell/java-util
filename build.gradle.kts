@@ -14,6 +14,8 @@ java {
     }
 }
 
+version = "0.9.0"
+
 repositories {
     mavenCentral()
     gradlePluginPortal()
@@ -58,7 +60,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.java-util", "java-util", "0.8.0")
+    coordinates("com.abissell.java-util", "java-util", "0.9.0")
 
     pom {
         name.set("java-util")
