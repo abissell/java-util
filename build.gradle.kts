@@ -14,12 +14,20 @@ java {
     }
 }
 
-version = "0.11.0"
-group = "com.abissell.javautil"
+version = "0.12.0"
+group = "com.abissell"
 
 repositories {
     mavenCentral()
     gradlePluginPortal()
+}
+
+dependencies {
+    implementation("net.openhft:chronicle-core:2026.3")
+    testImplementation(platform("org.junit:junit-bom:6.0.3"))
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 extraJavaModuleInfo {
@@ -37,14 +45,6 @@ extraJavaModuleInfo {
     module("jffi-1.3.12-native.jar", "org.jnrproject.jffi.nativelibs")
     module("jnr-a64asm-1.0.0.jar", "jnr.a64asm")
     module("jnr-x86asm-1.0.2.jar", "jnr.x86asm")
-}
-
-dependencies {
-    implementation("net.openhft:chronicle-core:2026.3")
-    testImplementation(platform("org.junit:junit-bom:6.0.3"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.withType<JavaCompile>().configureEach {
@@ -65,7 +65,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.javautil", "javautil", version.toString())
+    coordinates("com.abissell", "javautil", version.toString())
 
     pom {
         name.set("java-util")
