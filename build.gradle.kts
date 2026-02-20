@@ -14,7 +14,7 @@ java {
     }
 }
 
-version = "0.10.0"
+version = "0.11.0"
 group = "com.abissell.javautil"
 
 repositories {
@@ -47,6 +47,10 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    options.javaModuleVersion = provider { version.toString() }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
@@ -61,7 +65,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.javautil", "javautil", "${version}")
+    coordinates("com.abissell.javautil", "javautil", version.toString())
 
     pom {
         name.set("java-util")
