@@ -14,7 +14,8 @@ java {
     }
 }
 
-version = "0.9.0"
+version = "0.10.0"
+group = "com.abissell.javautil"
 
 repositories {
     mavenCentral()
@@ -60,7 +61,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("com.abissell.java-util", "java-util", "0.9.0")
+    coordinates("com.abissell.javautil", "javautil", "${version}")
 
     pom {
         name.set("java-util")
