@@ -22,6 +22,14 @@ repositories {
     gradlePluginPortal()
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    options.javaModuleVersion = provider { version.toString() }
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation("net.openhft:chronicle-core:2026.3")
     testImplementation(platform("org.junit:junit-bom:6.0.3"))
@@ -45,14 +53,6 @@ extraJavaModuleInfo {
     module("jffi-1.3.12-native.jar", "org.jnrproject.jffi.nativelibs")
     module("jnr-a64asm-1.0.0.jar", "jnr.a64asm")
     module("jnr-x86asm-1.0.2.jar", "jnr.x86asm")
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.javaModuleVersion = provider { version.toString() }
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 mavenPublishing {
